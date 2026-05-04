@@ -1,0 +1,70 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+:root {
+  --background: #161619;
+  --background-secondary: #1A1A1D;
+  --foreground: #F5F2EC;
+  --foreground-muted: rgba(245, 242, 236, 0.6);
+  --sprout-green: #81C784;
+  --warm-orange: #E8A87C;
+  --card: #1A1A1D;
+  --card-foreground: #F5F2EC;
+  --border: rgba(245, 242, 236, 0.1);
+  --radius: 16px;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), var(--font-noto-sans-sc), 'Inter', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, sans-serif;
+  --font-serif: var(--font-inter), var(--font-noto-sans-sc), 'Inter', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, sans-serif;
+  --font-display: var(--font-inter), var(--font-noto-sans-sc), 'Inter', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-sprout: var(--sprout-green);
+  --color-warm: var(--warm-orange);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --radius-lg: var(--radius);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "liga" 1, "calt" 1;
+  }
+
+  ::selection {
+    background-color: rgba(129, 199, 132, 0.3);
+    color: #F5F2EC;
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #161619;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(129, 199, 132, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(129, 199, 132, 0.5);
+}
