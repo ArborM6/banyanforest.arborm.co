@@ -1,19 +1,6 @@
 import type { Metadata } from 'next'
-import { Noto_Sans_SC, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
-
-const notoSansSC = Noto_Sans_SC({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-noto-sans-sc',
-})
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-inter',
-})
 
 export const metadata: Metadata = {
   title: '独木成林 - 让每一天都值得记录',
@@ -44,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="zh-CN" className={`${notoSansSC.variable} ${inter.variable} bg-[#0C0C0E]`}>
+    <html lang="zh-CN" className="bg-[#0C0C0E]">
       <body className="font-sans antialiased bg-[#0C0C0E] text-[#F5F2EC]">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

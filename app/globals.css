@@ -12,6 +12,8 @@
   --card-foreground: #F5F2EC;
   --border: rgba(245, 242, 236, 0.1);
   --radius: 16px;
+  --font-inter: 'Inter';
+  --font-noto-sans-sc: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei';
 }
 
 @theme inline {
