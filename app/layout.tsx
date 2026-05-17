@@ -5,7 +5,6 @@ import './globals.css'
 export const metadata: Metadata = {
   title: '独木成林 - 让每一天都值得记录',
   description: '每天 3-4 张文化卡片推送，感性艺术、人文知识、当下连接、随机惊喜。用户每坚持一天就长出一片"芽"，最终成为一座私人森林。',
-  generator: 'v0.app',
   icons: {
     icon: [
       {
@@ -15,10 +14,6 @@ export const metadata: Metadata = {
       {
         url: '/icon-dark-32x32.png',
         media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
       },
     ],
     apple: '/apple-icon.png',
