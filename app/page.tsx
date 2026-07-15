@@ -297,7 +297,7 @@ function HeroSection({ lang }: { lang: Lang }) {
         transition={{ duration: 0.8, delay: 0.7 }}
       >
         <a
-          href="#"
+          href="/download"
           className="px-8 py-3 bg-[#81C784] text-[#0C0C0E] rounded-[16px] font-sans text-sm font-medium hover:bg-[#9CCC9F] transition-colors duration-300 text-center inline-block"
         >
           {t.download}
