@@ -22,8 +22,8 @@ const i18n = {
       title: "獨木成林",
       subtitle: "讓每一天都值得記錄",
       tagline: "願我們每個人都能成為更豐富的自己。",
-      download: "App Store 下載",
-      scroll: "向下滾動",
+      download: "ios 下载",
+      login: "web/Android 登录",
     },
     what: {
       cards: [
@@ -95,8 +95,8 @@ const i18n = {
       title: "Banyan Forest",
       subtitle: "Make every day worth remembering",
       tagline: "May each of us become a richer self.",
-      download: "Download on App Store",
-      scroll: "Scroll down",
+      download: "iOS Download",
+      login: "Web/Android Login",
     },
     what: {
       cards: [
@@ -239,6 +239,7 @@ function Header({ lang }: { lang: Lang }) {
 // Hero Section
 function HeroSection({ lang }: { lang: Lang }) {
   const t = i18n[lang].hero
+  const loginHref = "https://dmcl.arborm.co"
 
   return (
     <section id="top" className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-16">
@@ -295,12 +296,19 @@ function HeroSection({ lang }: { lang: Lang }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.7 }}
+        className="flex flex-col sm:flex-row items-center justify-center gap-3"
       >
         <a
           href="/download"
-          className="px-8 py-3 bg-[#81C784] text-[#0C0C0E] rounded-[16px] font-sans text-sm font-medium hover:bg-[#9CCC9F] transition-colors duration-300 text-center inline-block"
+          className="min-w-[150px] px-8 py-3 bg-[#81C784] text-[#0C0C0E] rounded-[16px] font-sans text-sm font-medium hover:bg-[#9CCC9F] transition-colors duration-300 text-center inline-block"
         >
           {t.download}
+        </a>
+        <a
+          href={loginHref}
+          className="min-w-[170px] px-8 py-3 bg-[#E09088] text-[#0C0C0E] rounded-[16px] font-sans text-sm font-medium hover:bg-[#E89F97] transition-colors duration-300 text-center inline-block"
+        >
+          {t.login}
         </a>
       </motion.div>
 
@@ -311,7 +319,6 @@ function HeroSection({ lang }: { lang: Lang }) {
         transition={{ duration: 0.8, delay: 1.2 }}
         className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-[rgba(245,242,236,0.4)] text-sm font-sans">{t.scroll}</span>
         <motion.span
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
