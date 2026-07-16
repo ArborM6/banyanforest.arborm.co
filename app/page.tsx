@@ -22,7 +22,7 @@ const i18n = {
       title: "獨木成林",
       subtitle: "讓每一天都值得記錄",
       tagline: "願我們每個人都能成為更豐富的自己。",
-      download: "ios 下载",
+      download: "iOS 下载",
       login: "Web/Android",
     },
     what: {
