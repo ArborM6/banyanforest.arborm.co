@@ -41,7 +41,7 @@ const content: Record<string, PrivacyContent> = {
       {
         title: "五、未成年人資訊保護",
         content:
-          "本應用不面向未滿 14 周歲的兒童。我們不會主動收集未滿 14 周歲兒童的個人資訊。若您是未滿 14 周歲兒童的監護人，發現我們可能收集了您孩子的資訊，請聯繫我們，我們將盡快刪除。",
+          "本應用不面向未滿 13 周歲的兒童。我們不會主動收集未滿 13 周歲兒童的個人資訊。若您是未滿 13 周歲兒童的監護人，發現我們可能收集了您孩子的資訊，請聯繫我們，我們將盡快刪除。",
       },
       {
         title: "六、資料保留與刪除",
@@ -95,7 +95,7 @@ const content: Record<string, PrivacyContent> = {
       {
         title: "5. Protection of Minors' Information",
         content:
-          "This application is not intended for children under 14 years of age. We do not actively collect personal information from children under 14. If you are a guardian of a child under 14 and believe we may have collected your child's information, please contact us and we will delete it as soon as possible.",
+          "This application is not intended for children under 13 years of age. We do not actively collect personal information from children under 13. If you are a guardian of a child under 13 and believe we may have collected your child's information, please contact us and we will delete it as soon as possible.",
       },
       {
         title: "6. Data Retention and Deletion",
