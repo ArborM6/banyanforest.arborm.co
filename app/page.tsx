@@ -962,7 +962,7 @@ function Footer({ lang }: { lang: Lang }) {
             {connectLabel}
           </h4>
           <a
-            href="mailto:support@arborm.com"
+            href="mailto:hello@arborm.com"
             className="inline-flex items-center gap-2 text-[rgba(245,242,236,0.65)] font-sans text-sm hover:text-[#81C784] transition-colors"
           >
             <Mail
@@ -970,7 +970,7 @@ function Footer({ lang }: { lang: Lang }) {
               className="w-4 h-4 shrink-0 text-[#81C784]"
               strokeWidth={1.5}
             />
-            support@arborm.com
+            hello@arborm.com
           </a>
         </div>
 
