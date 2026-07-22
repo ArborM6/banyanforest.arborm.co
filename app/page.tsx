@@ -933,6 +933,8 @@ function Footer({ lang }: { lang: Lang }) {
   const brandTagline =
     lang === "zh" ? "讓每一天都值得記錄。" : "Make every day worth remembering."
   const connectLabel = lang === "zh" ? "聯繫" : "Connect"
+  const companyName =
+    lang === "zh" ? "合肥阿博木科技有限公司" : "Hefei ArborM Technology Co., Ltd."
   const legalLabel = lang === "zh" ? "條款" : "Legal"
 
   return (
@@ -961,17 +963,25 @@ function Footer({ lang }: { lang: Lang }) {
           <h4 className="text-[rgba(245,242,236,0.4)] font-sans text-xs tracking-[0.18em] uppercase mb-4">
             {connectLabel}
           </h4>
-          <a
-            href="mailto:hello@arborm.com"
-            className="inline-flex items-center gap-2 text-[rgba(245,242,236,0.65)] font-sans text-sm hover:text-[#81C784] transition-colors"
-          >
-            <Mail
-              aria-hidden="true"
-              className="w-4 h-4 shrink-0 text-[#81C784]"
-              strokeWidth={1.5}
-            />
-            hello@arborm.com
-          </a>
+          <div className="flex flex-col items-start gap-3">
+            <a
+              href="mailto:hello@arborm.com"
+              className="inline-flex items-center gap-2 text-[rgba(245,242,236,0.65)] font-sans text-sm hover:text-[#81C784] transition-colors"
+            >
+              <Mail
+                aria-hidden="true"
+                className="w-4 h-4 shrink-0 text-[#81C784]"
+                strokeWidth={1.5}
+              />
+              hello@arborm.com
+            </a>
+            <a
+              href="https://www.arborm.co"
+              className="text-[rgba(245,242,236,0.65)] font-sans text-sm hover:text-[#81C784] transition-colors"
+            >
+              {companyName}
+            </a>
+          </div>
         </div>
 
         {/* Legal */}
