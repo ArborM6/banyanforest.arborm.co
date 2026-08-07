@@ -299,7 +299,7 @@ function HeroSection({ lang }: { lang: Lang }) {
         className="flex flex-col sm:flex-row items-center justify-center gap-3"
       >
         <a
-          href="/download"
+          href="https://apps.apple.com/app/%E7%8D%A8%E6%9C%A8%E6%88%90%E6%9E%97/id6760972773"
           className="w-[170px] px-6 py-3 bg-[#81C784] text-[#0C0C0E] rounded-[16px] font-sans text-sm font-medium hover:bg-[#9CCC9F] transition-colors duration-300 text-center inline-block"
         >
           {t.download}
