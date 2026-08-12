@@ -92,7 +92,7 @@ const i18n = {
       { label: "Rhythm", href: "#rhythm" },
     ],
     hero: {
-      title: "Banyan Forest",
+      title: "BanyanDay",
       subtitle: "Make every day worth remembering",
       tagline: "May each of us become a richer self.",
       download: "iOS Download",
@@ -192,7 +192,7 @@ const breathe = {
 function Header({ lang }: { lang: Lang }) {
   const t = i18n[lang]
   const targetLang = lang === "zh" ? "en" : "zh"
-  const brandName = lang === "zh" ? "獨木成林" : "Banyan Forest"
+  const brandName = lang === "zh" ? "獨木成林" : "BanyanDay"
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[rgba(12,12,14,0.7)] backdrop-blur-md border-b border-[rgba(245,242,236,0.06)]">
@@ -929,7 +929,7 @@ function RhythmSection({ lang }: { lang: Lang }) {
 function Footer({ lang }: { lang: Lang }) {
   const t = i18n[lang]
   const f = t.footer
-  const brandName = lang === "zh" ? "獨木成林" : "Banyan Forest"
+  const brandName = lang === "zh" ? "獨木成林" : "BanyanDay"
   const brandTagline =
     lang === "zh" ? "讓每一天都值得記錄。" : "Make every day worth remembering."
   const connectLabel = lang === "zh" ? "聯繫" : "Connect"

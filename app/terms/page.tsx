@@ -80,7 +80,7 @@ const content: Record<string, TermsContent> = {
       {
         title: "1. Service Description",
         content:
-          'DMCL (hereinafter referred to as "this application") is a content browsing and collection application developed and operated by Hefei Arbormu Technology Co., Ltd. This agreement applies to all services you use in this application. By registering or using this application, you agree to all terms of this agreement.',
+          'BanyanDay (hereinafter referred to as "this application") is a content browsing and collection application developed and operated by Hefei Arbormu Technology Co., Ltd. This agreement applies to all services you use in this application. By registering or using this application, you agree to all terms of this agreement.',
       },
       {
         title: "2. Account Registration and Management",
