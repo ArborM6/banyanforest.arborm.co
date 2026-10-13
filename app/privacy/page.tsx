@@ -61,7 +61,7 @@ const content: Record<string, PrivacyContent> = {
       {
         title: "九、聯繫我們",
         content:
-          "如您對本隱私政策有任何疑問，請通過 support@arborm.com 聯繫我們。",
+          "如您對本隱私政策有任何疑問，請通過 hello@arborm.com 聯繫我們。",
       },
     ],
     copyright: "© 2026 合肥阿博木科技有限公司 版權所有",
@@ -115,7 +115,7 @@ const content: Record<string, PrivacyContent> = {
       {
         title: "9. Contact Us",
         content:
-          "If you have any questions about this privacy policy, please contact us at support@arborm.com.",
+          "If you have any questions about this privacy policy, please contact us at hello@arborm.com.",
       },
     ],
     copyright: "© 2026 Hefei Arbormu Technology Co., Ltd. All rights reserved",

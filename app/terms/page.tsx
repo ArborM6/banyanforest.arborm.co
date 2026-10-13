@@ -46,7 +46,7 @@ const content: Record<string, TermsContent> = {
       {
         title: "六、帳號註銷",
         content:
-          "您有權隨時申請註銷您的帳號。您可以通過應用內「設置」中的註銷功能自行操作，或發送郵件至 support@arborm.com 申請註銷。帳號註銷後，我們將在 15 個工作日內刪除您的個人資訊，法律法規另有規定的除外。",
+          "您有權隨時申請註銷您的帳號。您可以通過應用內「設置」中的註銷功能自行操作，或發送郵件至 hello@arborm.com 申請註銷。帳號註銷後，我們將在 15 個工作日內刪除您的個人資訊，法律法規另有規定的除外。",
       },
       {
         title: "七、服務終止",
@@ -105,7 +105,7 @@ const content: Record<string, TermsContent> = {
       {
         title: "6. Account Cancellation",
         content:
-          'You have the right to apply for account cancellation at any time. You can do this through the cancellation function in "Settings" within the app, or send an email to support@arborm.com to apply for cancellation. After account cancellation, we will delete your personal information within 15 business days, unless otherwise required by laws and regulations.',
+          'You have the right to apply for account cancellation at any time. You can do this through the cancellation function in "Settings" within the app, or send an email to hello@arborm.com to apply for cancellation. After account cancellation, we will delete your personal information within 15 business days, unless otherwise required by laws and regulations.',
       },
       {
         title: "7. Service Termination",
