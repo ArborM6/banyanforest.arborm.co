@@ -16,7 +16,7 @@ interface PrivacyContent {
 const content: Record<string, PrivacyContent> = {
   zh: {
     title: "隱私政策",
-    lastUpdated: "最後更新：2026-04-03",
+    lastUpdated: "最後更新：2026-10-13",
     sections: [
       {
         title: "一、我們收集的資訊",
@@ -31,7 +31,7 @@ const content: Record<string, PrivacyContent> = {
       {
         title: "三、資訊存儲與保護",
         content:
-          "您的資料存儲在安全的雲端伺服器上，傳輸過程使用 TLS/SSL 加密。我們採取合理的技術和管理措施保護您的個人資訊安全。",
+          "您的帳號及需要同步的資料存儲在雲端伺服器上，傳輸過程使用 TLS/SSL 加密；卡片快取和應用設定也會存儲在您的裝置上。為讓 iOS 小工具顯示與帳號一致的卡片，本應用及其小工具會透過系統提供的共用儲存區，讀寫目前帳號的識別資訊、小工具專用存取憑證、卡片內容與排程、圖片快取及語言偏好。小工具也會透過加密連線向我們的後端讀取卡片更新。這項本機共用僅限本應用及其小工具，不向其他公司的應用開放。我們採取合理的技術和管理措施保護您的個人資訊安全。",
       },
       {
         title: "四、第三方共享",
@@ -70,7 +70,7 @@ const content: Record<string, PrivacyContent> = {
   },
   en: {
     title: "Privacy Policy",
-    lastUpdated: "Last Updated: April 3, 2026",
+    lastUpdated: "Last Updated: October 13, 2026",
     sections: [
       {
         title: "1. Information We Collect",
@@ -85,7 +85,7 @@ const content: Record<string, PrivacyContent> = {
       {
         title: "3. Information Storage and Protection",
         content:
-          "Your data is stored on secure cloud servers, and transmission is encrypted using TLS/SSL. We take reasonable technical and administrative measures to protect the security of your personal information.",
+          "Your account data and information that needs to be synchronized are stored on cloud servers and encrypted in transit using TLS/SSL. Card caches and app settings are also stored on your device. To display cards associated with your account, the iOS app and its widgets use shared storage provided by the operating system for the current account identifier, a widget-specific access credential, card content and schedules, cached images, and language preferences. Widgets also retrieve card updates from our backend over encrypted connections. This local shared storage is limited to our app and its widgets and is not made available to other companies' apps. We take reasonable technical and administrative measures to protect your personal information.",
       },
       {
         title: "4. Third-Party Sharing",
