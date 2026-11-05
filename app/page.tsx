@@ -78,6 +78,7 @@ const i18n = {
     footer: {
       privacy: "隱私政策",
       terms: "服務條款",
+      refund: "退款政策",
       copyright: "© {year} 合肥阿博木科技有限公司 版權所有",
     },
     langSwitch: "EN",
@@ -154,6 +155,7 @@ const i18n = {
     footer: {
       privacy: "Privacy Policy",
       terms: "Terms of Service",
+      refund: "Refund Policy",
       copyright: "© {year} Hefei Arbormu Technology Co., Ltd. All rights reserved.",
     },
     langSwitch: "中文",
@@ -1004,6 +1006,14 @@ function Footer({ lang }: { lang: Lang }) {
                 className="text-[rgba(245,242,236,0.65)] font-sans text-sm hover:text-[#81C784] transition-colors"
               >
                 {f.terms}
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={`/refund?lang=${lang === "en" ? "en" : "zh-Hans"}`}
+                className="text-[rgba(245,242,236,0.65)] font-sans text-sm hover:text-[#81C784] transition-colors"
+              >
+                {f.refund}
               </Link>
             </li>
           </ul>
