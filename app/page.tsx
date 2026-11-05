@@ -6,6 +6,7 @@ import { motion } from "framer-motion"
 import { useSearchParams } from "next/navigation"
 import { Suspense, useEffect, useState } from "react"
 import { Sun, Coffee, Moon, Mail } from "lucide-react"
+import { refundPolicyUrl } from "@/lib/subscription"
 
 // i18n content
 const i18n = {
@@ -24,6 +25,7 @@ const i18n = {
       tagline: "願我們每個人都能成為更豐富的自己。",
       download: "iOS 下载",
       login: "Web/Android",
+      membership: "會員與訂閱",
     },
     what: {
       cards: [
@@ -76,6 +78,7 @@ const i18n = {
       ],
     },
     footer: {
+      membership: "會員與訂閱",
       privacy: "隱私政策",
       terms: "服務條款",
       refund: "退款政策",
@@ -98,6 +101,7 @@ const i18n = {
       tagline: "May each of us become a richer self.",
       download: "iOS Download",
       login: "Web/Android",
+      membership: "Membership & pricing",
     },
     what: {
       cards: [
@@ -153,6 +157,7 @@ const i18n = {
       ],
     },
     footer: {
+      membership: "Membership & pricing",
       privacy: "Privacy Policy",
       terms: "Terms of Service",
       refund: "Refund Policy",
@@ -214,7 +219,7 @@ function Header({ lang }: { lang: Lang }) {
         </a>
 
         {/* Nav links (hidden on small screens) */}
-        <nav className="hidden md:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-7">
           {t.nav.map((item) => (
             <a
               key={item.href}
@@ -226,13 +231,23 @@ function Header({ lang }: { lang: Lang }) {
           ))}
         </nav>
 
-        {/* Language switcher */}
-        <Link
-          href={`/?lang=${targetLang}`}
-          className="shrink-0 px-3.5 py-1.5 border border-[rgba(245,242,236,0.15)] rounded-full text-[#F5F2EC] font-sans text-xs hover:border-[#81C784] hover:text-[#81C784] transition-colors"
-        >
-          {t.langSwitch}
-        </Link>
+        <div className="flex shrink-0 items-center gap-3 sm:gap-5">
+          <Link
+            href={`/pricing?lang=${lang}`}
+            aria-label={t.hero.membership}
+            className="font-sans text-xs text-[#81C784] transition-colors hover:text-[#A7D6A5] sm:text-sm"
+          >
+            <span className="hidden sm:inline">{t.hero.membership}</span>
+            <span className="sm:hidden">{lang === "zh" ? "會員" : "Membership"}</span>
+          </Link>
+          {/* Language switcher */}
+          <Link
+            href={`/?lang=${targetLang}`}
+            className="shrink-0 px-3.5 py-1.5 border border-[rgba(245,242,236,0.15)] rounded-full text-[#F5F2EC] font-sans text-xs hover:border-[#81C784] hover:text-[#81C784] transition-colors"
+          >
+            {t.langSwitch}
+          </Link>
+        </div>
       </div>
     </header>
   )
@@ -312,6 +327,21 @@ function HeroSection({ lang }: { lang: Lang }) {
         >
           {t.login}
         </a>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
+        className="mt-5"
+      >
+        <Link
+          href={`/pricing?lang=${lang}`}
+          className="inline-flex items-center gap-2 text-sm text-[rgba(245,242,236,0.65)] transition-colors hover:text-[#81C784]"
+        >
+          {t.membership}
+          <span aria-hidden="true">↗</span>
+        </Link>
       </motion.div>
 
       {/* Scroll hint */}
@@ -994,6 +1024,14 @@ function Footer({ lang }: { lang: Lang }) {
           <ul className="flex flex-col gap-3">
             <li>
               <Link
+                href={`/pricing?lang=${lang}`}
+                className="text-[rgba(245,242,236,0.65)] font-sans text-sm hover:text-[#81C784] transition-colors"
+              >
+                {f.membership}
+              </Link>
+            </li>
+            <li>
+              <Link
                 href={`/privacy?lang=${lang}`}
                 className="text-[rgba(245,242,236,0.65)] font-sans text-sm hover:text-[#81C784] transition-colors"
               >
@@ -1010,7 +1048,7 @@ function Footer({ lang }: { lang: Lang }) {
             </li>
             <li>
               <Link
-                href={`/refund?lang=${lang === "en" ? "en" : "zh-Hans"}`}
+                href={refundPolicyUrl(lang)}
                 className="text-[rgba(245,242,236,0.65)] font-sans text-sm hover:text-[#81C784] transition-colors"
               >
                 {f.refund}
