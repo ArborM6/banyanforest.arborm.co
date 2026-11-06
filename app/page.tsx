@@ -67,7 +67,7 @@ const i18n = {
     },
     widget: {
       title: "在鎖屏遇見今天",
-      subtitle: "三種尺寸的小組件，讓藝術自然融入你的日常",
+      subtitle: "四種尺寸的小組件，讓藝術自然融入你的日常",
     },
     rhythm: {
       title: "與你的節奏同步",
@@ -147,7 +147,7 @@ const i18n = {
     },
     widget: {
       title: "Meet today on your lock screen",
-      subtitle: "Three widget sizes, letting art naturally blend into your daily life",
+      subtitle: "Four widget sizes, letting art naturally blend into your daily life",
     },
     rhythm: {
       title: "In sync with your rhythm",
@@ -767,123 +767,35 @@ function WidgetSection({ lang }: { lang: Lang }) {
   return (
     <section id="widget" className="py-32 px-6 bg-[#1A1A1D] scroll-mt-16">
       <div className="max-w-6xl mx-auto">
-        <motion.h2
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="font-serif text-3xl md:text-4xl text-center mb-6 text-balance"
-        >
+        <motion.h2 variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ duration: 0.8 }} className="font-serif text-3xl md:text-4xl text-center mb-6 text-balance">
           {t.title}
         </motion.h2>
-        <motion.p
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-[rgba(245,242,236,0.6)] text-center font-serif mb-16 max-w-xl mx-auto"
-        >
+        <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.1 }} className="text-[rgba(245,242,236,0.6)] text-center font-serif mb-16 max-w-xl mx-auto">
           {t.subtitle}
         </motion.p>
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="flex flex-col md:flex-row justify-center items-end gap-8"
-        >
-          {/* Small widget */}
-          <motion.div
-            variants={fadeInUp}
-            transition={{ duration: 0.8 }}
-            whileHover={{ y: -4 }}
-            className="flex flex-col items-center"
-          >
-            <div className="relative w-[155px] h-[155px] rounded-[24px] overflow-hidden shadow-lg mb-4 border border-[rgba(245,242,236,0.08)]">
-              <motion.div
-                key={`small-${widget.src}`}
-                initial={{ opacity: 0, scale: 1.02 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.45 }}
-                className="absolute inset-0"
-              >
-                <Image
-                  src={widget.src}
-                  alt="Small Widget"
-                  fill
-                  className={`object-cover ${widget.smallPosition}`}
-                />
-              </motion.div>
-            </div>
-            <span className="text-[rgba(245,242,236,0.5)] text-sm font-sans">Small</span>
-          </motion.div>
-
-          {/* Medium widget */}
-          <motion.div
-            variants={fadeInUp}
-            transition={{ duration: 0.8 }}
-            whileHover={{ y: -4 }}
-            className="flex flex-col items-center"
-          >
-            <div className="relative w-[329px] h-[155px] rounded-[24px] overflow-hidden shadow-lg mb-4 border border-[rgba(245,242,236,0.08)]">
-              <motion.div
-                key={`medium-${widget.src}`}
-                initial={{ opacity: 0, scale: 1.02 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.45 }}
-                className="absolute inset-0"
-              >
-                <Image
-                  src={widget.src}
-                  alt="Medium Widget"
-                  fill
-                  className={`object-cover ${widget.mediumPosition}`}
-                />
-              </motion.div>
-              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[rgba(12,12,14,0.78)] via-[rgba(12,12,14,0.32)] to-transparent" />
-              <div className="absolute inset-x-5 bottom-4 text-center">
-                <p className="font-sans text-[11px] leading-relaxed text-[rgba(245,242,236,0.74)]">
-                  {widget.mediumText[lang]}
-                </p>
+        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-4 items-end gap-2 sm:gap-4 md:gap-6">
+          {[
+            { name: "Small", className: "w-full max-w-[100px] aspect-square", position: widget.smallPosition },
+            { name: "Medium", className: "w-full max-w-[200px] aspect-[2.12/1]", position: widget.mediumPosition },
+            { name: "Large", className: "w-full max-w-[158px] aspect-square", position: widget.largePosition },
+            { name: "Duo", className: "w-full max-w-[158px] aspect-square", position: widget.largePosition },
+          ].map((size) => (
+            <motion.div key={size.name} variants={fadeInUp} transition={{ duration: 0.8 }} whileHover={{ y: -4 }} className="flex min-w-0 flex-col items-center">
+              <div className={`relative overflow-hidden rounded-[14px] shadow-lg mb-3 border border-[rgba(245,242,236,0.08)] ${size.className}`}>
+                <motion.div key={`${size.name}-${widget.src}`} initial={{ opacity: 0, scale: 1.02 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.45 }} className="absolute inset-0">
+                  <Image src={widget.src} alt={`${size.name} Widget`} fill className={`object-cover ${size.position}`} sizes="200px" />
+                </motion.div>
+                {size.name !== "Small" && (
+                  <div className={`absolute bottom-1.5 sm:bottom-3 ${size.name === "Medium" ? "inset-x-2 text-center" : "inset-x-2"}`}>
+                    <p className="font-sans text-[7px] leading-snug sm:text-[10px] text-white [text-shadow:0_1px_4px_black]">
+                      {size.name === "Medium" ? widget.mediumText[lang] : widget.largeText[lang]}
+                    </p>
+                  </div>
+                )}
               </div>
-            </div>
-            <span className="text-[rgba(245,242,236,0.5)] text-sm font-sans">Medium</span>
-          </motion.div>
-
-          {/* Large widget */}
-          <motion.div
-            variants={fadeInUp}
-            transition={{ duration: 0.8 }}
-            whileHover={{ y: -4 }}
-            className="flex flex-col items-center"
-          >
-            <div className="relative w-[329px] h-[345px] rounded-[24px] overflow-hidden shadow-lg mb-4 border border-[rgba(245,242,236,0.08)]">
-              <motion.div
-                key={`large-${widget.src}`}
-                initial={{ opacity: 0, scale: 1.02 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.45 }}
-                className="absolute inset-0"
-              >
-                <Image
-                  src={widget.src}
-                  alt="Large Widget"
-                  fill
-                  className={`object-cover ${widget.largePosition}`}
-                />
-              </motion.div>
-              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[rgba(12,12,14,0.84)] via-[rgba(12,12,14,0.48)] to-transparent" />
-              <div className="absolute left-5 right-5 bottom-5">
-                <p className="font-sans text-xs leading-relaxed text-[rgba(245,242,236,0.68)]">
-                  {widget.largeText[lang]}
-                </p>
-              </div>
-            </div>
-            <span className="text-[rgba(245,242,236,0.5)] text-sm font-sans">Large</span>
-          </motion.div>
+              <span className="text-[rgba(245,242,236,0.5)] text-[10px] sm:text-xs font-sans">{size.name}</span>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>
