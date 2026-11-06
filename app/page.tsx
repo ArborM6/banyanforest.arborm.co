@@ -773,12 +773,12 @@ function WidgetSection({ lang }: { lang: Lang }) {
         <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.1 }} className="text-[rgba(245,242,236,0.6)] text-center font-serif mb-16 max-w-xl mx-auto">
           {t.subtitle}
         </motion.p>
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-1 md:flex md:flex-row justify-items-center items-start md:items-end md:justify-center gap-8 md:gap-5 lg:gap-6">
+        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-1 md:flex md:flex-row justify-items-center items-start md:items-end md:justify-center gap-8 md:gap-6 lg:gap-8">
           {[
-            { name: "Small", className: "w-[155px] md:w-full md:w-[130px] md:max-w-[130px] lg:w-[155px] lg:max-w-[155px] aspect-square", position: widget.smallPosition },
-            { name: "Medium", className: "w-[329px] md:w-full md:w-[275px] md:max-w-[275px] lg:w-[329px] lg:max-w-[329px] aspect-[2.12/1]", position: widget.mediumPosition },
-            { name: "Large", className: "w-[329px] aspect-[329/345] md:w-full md:w-[275px] md:max-w-[275px] lg:w-[329px] lg:max-w-[329px]", position: widget.largePosition },
-            { name: "Duo", className: "w-[329px] aspect-[329/345] md:w-full md:w-[275px] md:max-w-[275px] lg:w-[329px] lg:max-w-[329px]", position: widget.largePosition },
+            { name: "Small", className: "w-[155px] md:w-full md:w-[117px] md:max-w-[117px] lg:w-[140px] lg:max-w-[140px] aspect-square", position: widget.smallPosition },
+            { name: "Medium", className: "w-[329px] md:w-full md:w-[247px] md:max-w-[247px] lg:w-[296px] lg:max-w-[296px] aspect-[2.12/1]", position: widget.mediumPosition },
+            { name: "Large", className: "w-[329px] aspect-[329/345] md:w-full md:w-[247px] md:max-w-[247px] lg:w-[296px] lg:max-w-[296px]", position: widget.largePosition },
+            { name: "Duo", className: "w-[329px] aspect-[329/345] md:w-full md:w-[247px] md:max-w-[247px] lg:w-[296px] lg:max-w-[296px]", position: widget.largePosition },
           ].map((size) => (
             <motion.div key={size.name} variants={fadeInUp} transition={{ duration: 0.8 }} whileHover={{ y: -4 }} className="flex min-w-0 flex-col items-center">
               <div className={`relative overflow-hidden rounded-[24px] md:rounded-[24px] shadow-lg mb-3 border border-[rgba(245,242,236,0.08)] ${size.className}`}>
