@@ -59,6 +59,7 @@ const i18n = {
       canvas: "畫廊模式",
     },
     rings: {
+      explanation: ["每棵樹的年輪都不同", "所以每個人每天收到的內容也不同", "日積月累，長成獨一無二的自己"],
       title: "堅持，是一種被看見的耐心",
       description:
         "一年 365 天，樹木也會多一圈。年輪是時間留下的溫柔印記，見證你與自己相處的耐心。",
@@ -138,6 +139,7 @@ const i18n = {
       canvas: "Canvas Mode",
     },
     rings: {
+      explanation: ["Every tree has its own rings.", "So everyone receives something different each day.", "Day by day, you grow into someone unique."],
       title: "Persistence is patience made visible",
       description:
         "365 days a year, a tree gains another ring. The rings are time's gentle imprint, witnessing the patience of being with yourself.",
@@ -622,7 +624,7 @@ function RingsSection({ lang }: { lang: Lang }) {
           className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
         >
           {/* SVG Rings */}
-          <motion.div variants={fadeInUp} transition={{ duration: 0.8 }} className="flex justify-center">
+          <motion.div variants={fadeInUp} transition={{ duration: 0.8 }} className="flex flex-col items-center justify-center">
             <svg
               className="w-64 h-64 md:w-80 md:h-80"
               viewBox="0 0 200 200"
@@ -673,6 +675,9 @@ function RingsSection({ lang }: { lang: Lang }) {
                 {ringCount}
               </motion.text>
             </svg>
+            <div className="mt-6 text-center font-serif text-base leading-8 text-[rgba(245,242,236,0.7)]">
+              {t.explanation.map((line) => <p key={line}>{line}</p>)}
+            </div>
           </motion.div>
 
           {/* Text content */}
