@@ -66,7 +66,7 @@ const i18n = {
       note: "年輪勳章——刻錄生長的痕跡。",
     },
     widget: {
-      title: "在鎖屏遇見今天",
+      title: "在主畫面遇見今天",
       subtitle: "四種尺寸的小組件，讓藝術自然融入你的日常",
     },
     rhythm: {
@@ -146,7 +146,7 @@ const i18n = {
       note: "Annual Ring Badge — engraving the traces of growth.",
     },
     widget: {
-      title: "Meet today on your lock screen",
+      title: "Meet today on your Home Screen",
       subtitle: "Four widget sizes, letting art naturally blend into your daily life",
     },
     rhythm: {
@@ -773,14 +773,15 @@ function WidgetSection({ lang }: { lang: Lang }) {
         <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.1 }} className="text-[rgba(245,242,236,0.6)] text-center font-serif mb-16 max-w-xl mx-auto">
           {t.subtitle}
         </motion.p>
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-1 md:flex md:flex-row justify-items-center items-start md:items-end md:justify-center gap-8 md:gap-6 lg:gap-8">
+        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[minmax(0,155fr)_minmax(0,329fr)_minmax(0,329fr)_minmax(0,280fr)] items-end justify-items-center gap-8">
           {[
-            { name: "Small", className: "w-[155px] md:w-full md:w-[117px] md:max-w-[117px] lg:w-[140px] lg:max-w-[140px] aspect-square", position: widget.smallPosition },
-            { name: "Medium", className: "w-[329px] md:w-full md:w-[247px] md:max-w-[247px] lg:w-[296px] lg:max-w-[296px] aspect-[2.12/1]", position: widget.mediumPosition },
-            { name: "Large", className: "w-[329px] aspect-[329/345] md:w-full md:w-[247px] md:max-w-[247px] lg:w-[296px] lg:max-w-[296px]", position: widget.largePosition },
-            { name: "Duo", className: "w-[329px] aspect-[329/345] md:w-full md:w-[247px] md:max-w-[247px] lg:w-[296px] lg:max-w-[296px]", position: widget.largePosition },
+            { name: "Small", className: "w-full max-w-[155px] aspect-square", position: widget.smallPosition },
+            { name: "Medium", className: "w-full max-w-[329px] aspect-[329/155]", position: widget.mediumPosition },
+            { name: "Large", className: "w-full max-w-[329px] aspect-[329/345]", position: widget.largePosition },
+            // Present the Extra Large preview vertically, with upright artwork and text.
+            { name: "Extra Large", className: "w-full max-w-[280px] aspect-[356/748]", position: widget.largePosition },
           ].map((size) => (
-            <motion.div key={size.name} variants={fadeInUp} transition={{ duration: 0.8 }} whileHover={{ y: -4 }} className="flex min-w-0 flex-col items-center">
+            <motion.div key={size.name} variants={fadeInUp} transition={{ duration: 0.8 }} whileHover={{ y: -4 }} className="flex min-w-0 w-full flex-col items-center">
               <div className={`relative overflow-hidden rounded-[24px] md:rounded-[24px] shadow-lg mb-3 border border-[rgba(245,242,236,0.08)] ${size.className}`}>
                 <motion.div key={`${size.name}-${widget.src}`} initial={{ opacity: 0, scale: 1.02 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.45 }} className="absolute inset-0">
                   <Image src={widget.src} alt={`${size.name} Widget`} fill className={`object-cover ${size.position}`} sizes="200px" />
