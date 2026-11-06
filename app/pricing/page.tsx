@@ -119,7 +119,7 @@ export default async function PricingPage({ searchParams }: PageProps) {
           <div className="mx-auto max-w-4xl">
             <div className="mb-9 text-center">
               <h2 id="plans-title" className="text-2xl sm:text-3xl">{t.plansTitle}</h2>
-              <p className="mt-4 text-sm leading-7 text-[#B5B3B0]">{t.plansDescription}</p>
+              <p className="mt-4 text-sm leading-7 text-[#B5B3B0]">{t.plansDescription.map((line) => <span key={line} className="block">{line}</span>)}</p>
             </div>
             <div className="grid gap-5 md:grid-cols-2">
               <article className="flex flex-col rounded-2xl border border-white/10 bg-[#1C1C1F] p-7 sm:p-9">
@@ -246,7 +246,7 @@ export default async function PricingPage({ searchParams }: PageProps) {
                     {faq.question}
                     <ChevronDown aria-hidden="true" className="size-4 shrink-0 text-[#81C784] motion-safe:transition-transform group-open:rotate-180" />
                   </summary>
-                  <p className={`pb-6 pr-6 text-sm leading-7 ${faq.question === t.faqs[2].question ? "text-[#E09088]" : "text-[#B5B3B0]"} mainland-punctuation`}>{faq.answer}</p>
+                  <p className={`pb-6 pr-6 text-sm leading-7 text-[#B5B3B0] mainland-punctuation`}>{faq.answer}</p>
                 </details>
               ))}
             </div>

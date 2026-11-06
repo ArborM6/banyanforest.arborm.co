@@ -15,7 +15,7 @@ export const pricingContent = {
     artwork: "CLAUDE MONET · 每日葉片中的一幅風景",
     artworkNote: "每天一點相遇，日子自有回響。",
     plansTitle: "選擇適合你的生長方式",
-    plansDescription: "基礎版持續免費。想收下每一片葉子，可以選擇年度會員。",
+    plansDescription: ["基礎版持續免費。", "想收下每一片葉子，可以選擇年度會員。"],
     free: {
       eyebrow: "A LITTLE EVERY DAY",
       title: "基礎版",
@@ -119,7 +119,7 @@ export const pricingContent = {
     artwork: "CLAUDE MONET · A LANDSCAPE FROM OUR DAILY LEAVES",
     artworkNote: "Small encounters. Lasting impressions.",
     plansTitle: "Find your own way to grow",
-    plansDescription: "Basic stays free. Choose Annual Membership to receive every daily leaf.",
+    plansDescription: ["Basic stays free.", "Choose Annual Membership to receive every daily leaf."],
     free: {
       eyebrow: "A LITTLE EVERY DAY",
       title: "Basic",
