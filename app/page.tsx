@@ -777,8 +777,8 @@ function WidgetSection({ lang }: { lang: Lang }) {
           {[
             { name: "Small", className: "w-[155px] md:w-full md:max-w-[100px] lg:max-w-[110px] aspect-square", position: widget.smallPosition },
             { name: "Medium", className: "w-[329px] md:w-full md:max-w-[200px] lg:max-w-[220px] aspect-[2.12/1]", position: widget.mediumPosition },
-            { name: "Large", className: "w-[329px] aspect-[0.952/1] md:w-full md:max-w-[158px] lg:max-w-[170px] md:aspect-square", position: widget.largePosition },
-            { name: "Duo", className: "w-[329px] aspect-[0.952/1] md:w-full md:max-w-[158px] lg:max-w-[170px] md:aspect-square", position: widget.largePosition },
+            { name: "Large", className: "w-[329px] aspect-[329/345] md:w-full md:max-w-[158px] lg:max-w-[170px]", position: widget.largePosition },
+            { name: "Duo", className: "w-[329px] aspect-[329/345] md:w-full md:max-w-[158px] lg:max-w-[170px]", position: widget.largePosition },
           ].map((size) => (
             <motion.div key={size.name} variants={fadeInUp} transition={{ duration: 0.8 }} whileHover={{ y: -4 }} className="flex min-w-0 flex-col items-center">
               <div className={`relative overflow-hidden rounded-[24px] md:rounded-[14px] shadow-lg mb-3 border border-[rgba(245,242,236,0.08)] ${size.className}`}>
