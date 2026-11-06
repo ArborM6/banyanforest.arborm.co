@@ -773,27 +773,27 @@ function WidgetSection({ lang }: { lang: Lang }) {
         <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.1 }} className="text-[rgba(245,242,236,0.6)] text-center font-serif mb-16 max-w-xl mx-auto">
           {t.subtitle}
         </motion.p>
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-4 items-end gap-2 sm:gap-4 md:gap-6">
+        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-1 md:grid-cols-4 justify-items-center items-start md:items-end gap-8 md:gap-5 lg:gap-6">
           {[
-            { name: "Small", className: "w-full max-w-[100px] aspect-square", position: widget.smallPosition },
-            { name: "Medium", className: "w-full max-w-[200px] aspect-[2.12/1]", position: widget.mediumPosition },
-            { name: "Large", className: "w-full max-w-[158px] aspect-square", position: widget.largePosition },
-            { name: "Duo", className: "w-full max-w-[158px] aspect-square", position: widget.largePosition },
+            { name: "Small", className: "w-[155px] md:w-full md:max-w-[100px] lg:max-w-[110px] aspect-square", position: widget.smallPosition },
+            { name: "Medium", className: "w-[329px] md:w-full md:max-w-[200px] lg:max-w-[220px] aspect-[2.12/1]", position: widget.mediumPosition },
+            { name: "Large", className: "w-[329px] aspect-[0.952/1] md:w-full md:max-w-[158px] lg:max-w-[170px] md:aspect-square", position: widget.largePosition },
+            { name: "Duo", className: "w-[329px] aspect-[0.952/1] md:w-full md:max-w-[158px] lg:max-w-[170px] md:aspect-square", position: widget.largePosition },
           ].map((size) => (
             <motion.div key={size.name} variants={fadeInUp} transition={{ duration: 0.8 }} whileHover={{ y: -4 }} className="flex min-w-0 flex-col items-center">
-              <div className={`relative overflow-hidden rounded-[14px] shadow-lg mb-3 border border-[rgba(245,242,236,0.08)] ${size.className}`}>
+              <div className={`relative overflow-hidden rounded-[24px] md:rounded-[14px] shadow-lg mb-3 border border-[rgba(245,242,236,0.08)] ${size.className}`}>
                 <motion.div key={`${size.name}-${widget.src}`} initial={{ opacity: 0, scale: 1.02 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.45 }} className="absolute inset-0">
                   <Image src={widget.src} alt={`${size.name} Widget`} fill className={`object-cover ${size.position}`} sizes="200px" />
                 </motion.div>
                 {size.name !== "Small" && (
-                  <div className={`absolute bottom-1.5 sm:bottom-3 ${size.name === "Medium" ? "inset-x-2 text-center" : "inset-x-2"}`}>
-                    <p className="font-sans text-[7px] leading-snug sm:text-[10px] text-white [text-shadow:0_1px_4px_black]">
+                  <div className={`absolute bottom-4 md:bottom-3 ${size.name === "Medium" ? "inset-x-5 md:inset-x-2 text-center" : "inset-x-5 md:inset-x-3"}`}>
+                    <p className="font-sans text-[11px] md:text-[9px] lg:text-[10px] leading-relaxed md:leading-snug text-white [text-shadow:0_1px_4px_black]">
                       {size.name === "Medium" ? widget.mediumText[lang] : widget.largeText[lang]}
                     </p>
                   </div>
                 )}
               </div>
-              <span className="text-[rgba(245,242,236,0.5)] text-[10px] sm:text-xs font-sans">{size.name}</span>
+              <span className="text-[rgba(245,242,236,0.5)] text-sm md:text-xs font-sans">{size.name}</span>
             </motion.div>
           ))}
         </motion.div>
