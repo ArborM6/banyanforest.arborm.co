@@ -53,9 +53,8 @@ export const pricingContent = {
       { label: "註冊後完整體驗", free: "30 天", annual: "訂閱有效期間" },
     ],
     historyNote:
-      "重新訂閱可恢復完整日曆的查看權限，但無法補發基礎版期間未收到的葉片。",
-    billingTitle: "訂閱之前，先說清楚。",
-    billingDescription: "關於付款、續訂和取消，你可以在這裡找到答案。",
+      "重新訂閱可恢復完整日曆的查看權限，但無法補發基礎版期間未收到的葉片。就像我們可以想起遺忘的曾經，但不能改變過去發生的真實。",
+    billingTitle: "關於訂閱",
     billing: [
       {
         title: "按年訂閱",
@@ -89,7 +88,7 @@ export const pricingContent = {
       {
         question: "重新訂閱後，可以找回錯過的葉片嗎？",
         answer:
-          "重新訂閱可恢復完整日曆的查看權限，但基礎版期間未收到的額外葉片不會補發。完整日曆與每日葉片的接收權益是兩回事。",
+          "重新訂閱可恢復完整日曆的查看權限，但基礎版期間未收到的額外葉片不會補發。",
       },
       {
         question: "在哪裡查看我的會員狀態？",
@@ -158,9 +157,8 @@ export const pricingContent = {
       { label: "Full feature access", free: "30 days after registration", annual: "While subscribed" },
     ],
     historyNote:
-      "Resubscribing restores access to your full calendar, but does not deliver additional leaves missed while using Basic.",
-    billingTitle: "A few things to know before subscribing.",
-    billingDescription: "How payments, renewals, and cancellation work.",
+      "Resubscribing restores access to your full calendar, but does not deliver additional leaves missed while using Basic. We can remember what was once forgotten, but we cannot change what has already happened.",
+    billingTitle: "About subscription",
     billing: [
       {
         title: "Billed annually",
@@ -194,7 +192,7 @@ export const pricingContent = {
       {
         question: "Will resubscribing bring back leaves I missed?",
         answer:
-          "Resubscribing restores access to your complete calendar. Additional leaves you did not receive while on Basic are not delivered retroactively. Calendar history access and daily leaf delivery are separate benefits.",
+          "Resubscribing restores access to your complete calendar. Additional leaves you did not receive while on Basic are not delivered retroactively.",
       },
       {
         question: "Where can I check my membership status?",

@@ -40,7 +40,7 @@ export default async function PricingPage({ searchParams }: PageProps) {
   }).format(annualSubscription.amount)
 
   return (
-    <div lang={lang === "en" ? "en" : "zh-Hant"} className="min-h-screen bg-[#161619]">
+    <div lang={lang === "en" ? "en" : "zh-Hant"} className="min-h-screen bg-[#161619] font-['PingFang_TC','PingFang SC','Noto Sans TC','Noto Sans CJK TC','Microsoft JhengHei',sans-serif]">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-[#0C0C0E]/80 backdrop-blur-md">
         <nav aria-label={t.pageTitle} className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-6">
           <Link href={homeHref} className={`flex shrink-0 items-center gap-3 ${focusStyle}`}>
@@ -197,13 +197,12 @@ export default async function PricingPage({ searchParams }: PageProps) {
                 ))}
               </tbody>
             </table>
-            <p className="mt-5 max-w-2xl text-xs leading-6 text-[#B5B3B0]">{t.historyNote}</p>
+            <p className="mt-5 max-w-2xl text-xs leading-6 text-[#E09088]">{t.historyNote}</p>
           </div>
         </section>
 
         <section aria-labelledby="billing-title" className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
           <h2 id="billing-title" className="text-2xl leading-snug sm:text-3xl">{t.billingTitle}</h2>
-          <p className="mt-4 text-sm leading-7 text-[#B5B3B0]">{t.billingDescription}</p>
           <div className="mt-10 grid gap-9 md:grid-cols-3 md:gap-10">
             {t.billing.map((item, index) => (
               <article key={item.title} className="border-t border-white/15 pt-5">
