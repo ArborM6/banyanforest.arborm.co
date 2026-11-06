@@ -88,7 +88,7 @@ export const pricingContent = {
       {
         question: "重新訂閱後，可以找回錯過的葉片嗎？",
         answer:
-          "重新訂閱可恢復完整日曆的查看權限，但基礎版期間未收到的額外葉片不會補發。",
+          "不可以。重新訂閱可恢復完整日曆的查看權限，但不能補發基礎版期間未收到的額外葉片。就像我們可以想起遺忘的曾經，但不能改變過去發生的真實。",
       },
       {
         question: "在哪裡查看我的會員狀態？",
@@ -192,7 +192,7 @@ export const pricingContent = {
       {
         question: "Will resubscribing bring back leaves I missed?",
         answer:
-          "Resubscribing restores access to your complete calendar. Additional leaves you did not receive while on Basic are not delivered retroactively.",
+          "No. Resubscribing restores access to your complete calendar, but does not deliver additional leaves missed while using Basic. We can remember what was once forgotten, but we cannot change what has already happened.",
       },
       {
         question: "Where can I check my membership status?",

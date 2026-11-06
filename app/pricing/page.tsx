@@ -40,7 +40,23 @@ export default async function PricingPage({ searchParams }: PageProps) {
   }).format(annualSubscription.amount)
 
   return (
-    <div lang={lang === "en" ? "en" : "zh-Hant"} className="min-h-screen bg-[#161619] font-['PingFang_TC','PingFang SC','Noto Sans TC','Noto Sans CJK TC','Microsoft JhengHei',sans-serif]">
+    <div lang={lang === "en" ? "en" : "zh-Hant"} className="min-h-screen bg-[#161619]">
+      {lang === "zh" && (
+        <style>{`
+          @font-face {
+            font-family: "Mainland Punctuation";
+            src: url("/fonts/noto-sans-sc-punctuation.ttf") format("truetype");
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: swap;
+            unicode-range: U+3002, U+FF0C;
+          }
+          .mainland-punctuation {
+            font-family: "Mainland Punctuation", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+            font-feature-settings: "halt" 0, "vhal" 0, "halt" off, "vhal" off;
+          }
+        `}</style>
+      )}
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-[#0C0C0E]/80 backdrop-blur-md">
         <nav aria-label={t.pageTitle} className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-6">
           <Link href={homeHref} className={`flex shrink-0 items-center gap-3 ${focusStyle}`}>
@@ -197,7 +213,7 @@ export default async function PricingPage({ searchParams }: PageProps) {
                 ))}
               </tbody>
             </table>
-            <p className="mt-5 max-w-2xl text-xs leading-6 text-[#E09088]">{t.historyNote}</p>
+            <p className="mt-5 max-w-2xl text-xs leading-6 text-[#E09088] mainland-punctuation">{t.historyNote}</p>
           </div>
         </section>
 
@@ -230,7 +246,7 @@ export default async function PricingPage({ searchParams }: PageProps) {
                     {faq.question}
                     <ChevronDown aria-hidden="true" className="size-4 shrink-0 text-[#81C784] motion-safe:transition-transform group-open:rotate-180" />
                   </summary>
-                  <p className="pb-6 pr-6 text-sm leading-7 text-[#B5B3B0]">{faq.answer}</p>
+                  <p className={`pb-6 pr-6 text-sm leading-7 ${faq.question === t.faqs[2].question ? "text-[#E09088]" : "text-[#B5B3B0]"} mainland-punctuation`}>{faq.answer}</p>
                 </details>
               ))}
             </div>
