@@ -282,13 +282,6 @@ export default async function PricingPage({ searchParams }: PageProps) {
           </div>
           <div className="mt-7 flex flex-col justify-between gap-4 border-t border-white/[0.07] pt-6 text-xs leading-6 text-[#A5A49F] md:flex-row">
             <p>© {new Date().getFullYear()} {t.copyright}</p>
-            <div className="flex flex-wrap gap-x-5 gap-y-2">
-              <a href="https://beian.miit.gov.cn/" className={`hover:text-[#81C784] ${focusStyle}`}>皖ICP备2026007885号</a>
-              <a href="https://beian.mps.gov.cn/#/query/webSearch?code=34011102003969" className={`inline-flex items-center gap-1.5 hover:text-[#81C784] ${focusStyle}`}>
-                <Image src="/images/beian-icon.png" alt="" width={14} height={14} className="size-3.5" />
-                皖公网安备34011102003969号
-              </a>
-            </div>
           </div>
         </div>
       </footer>

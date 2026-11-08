@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from "next/image"
 
 interface TermsContent {
   title: string
@@ -186,24 +185,6 @@ export default async function TermsPage({
         <div className="mt-16 pt-8 border-t border-[rgba(245,242,236,0.1)]">
           <div className="flex flex-col items-center gap-3 text-[rgba(245,242,236,0.4)] font-sans text-xs">
             <p className="text-center">{c.copyright}</p>
-            <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6">
-              <span>皖ICP备2026007885号</span>
-              <a
-                href="https://beian.mps.gov.cn/#/query/webSearch?code=34011102003969"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-[#81C784] transition-colors"
-              >
-                <Image
-                  src="/images/beian-icon.png"
-                  alt=""
-                  width={14}
-                  height={14}
-                  className="w-3.5 h-3.5"
-                />
-                <span>皖公网安备34011102003969号</span>
-              </a>
-            </div>
           </div>
         </div>
       </div>

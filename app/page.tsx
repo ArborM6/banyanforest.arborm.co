@@ -1113,24 +1113,6 @@ function Footer({ lang }: { lang: Lang }) {
           <div className="text-center md:text-left">
             {f.copyright.replace("{year}", new Date().getFullYear().toString())}
           </div>
-          <div className="flex flex-col md:flex-row items-center gap-3 md:gap-5">
-            <span>皖ICP备2026007885号</span>
-            <a
-              href="https://beian.mps.gov.cn/#/query/webSearch?code=34011102003969"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 hover:text-[#81C784] transition-colors"
-            >
-              <Image
-                src="/images/beian-icon.png"
-                alt=""
-                width={14}
-                height={14}
-                className="w-3.5 h-3.5"
-              />
-              <span>皖公网安备34011102003969号</span>
-            </a>
-          </div>
         </div>
       </div>
     </footer>
