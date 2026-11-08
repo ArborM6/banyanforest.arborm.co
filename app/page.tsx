@@ -4,8 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { useSearchParams } from "next/navigation"
-import { Suspense, useEffect, useState } from "react"
-import { Sun, Coffee, Moon, Mail } from "lucide-react"
+import { Suspense, useEffect, useState, type ReactNode } from "react"
+import { Sun, Coffee, Moon, Mail, Signal, Wifi, BatteryFull } from "lucide-react"
 import { refundPolicyUrl } from "@/lib/subscription"
 
 // i18n content
@@ -68,6 +68,7 @@ const i18n = {
     widget: {
       title: "在主畫面遇見今天",
       subtitle: "四種尺寸的小組件，讓藝術自然融入你的日常",
+      appName: "独木成林",
     },
     rhythm: {
       title: "與你的節奏同步",
@@ -148,6 +149,7 @@ const i18n = {
     widget: {
       title: "Meet today on your Home Screen",
       subtitle: "Four widget sizes, letting art naturally blend into your daily life",
+      appName: "BanyanDay",
     },
     rhythm: {
       title: "In sync with your rhythm",
@@ -365,6 +367,80 @@ function HeroSection({ lang }: { lang: Lang }) {
   )
 }
 
+function PhoneFrame({ children, className = "" }: { children: ReactNode; className?: string }) {
+  return (
+    <div className={`relative mx-auto w-[240px] max-w-full aspect-[1206/2622] bg-[#0C0C0E] rounded-[36px] p-2 shadow-2xl ${className}`}>
+      <div className="relative w-full h-full rounded-[28px] overflow-hidden bg-[#1A1A1D]">
+        {children}
+      </div>
+    </div>
+  )
+}
+
+function DuoPhoneFrame({ screens }: { screens: ReactNode[] }) {
+  return (
+    <div className="duo-phone">
+      {screens.map((screen, index) => (
+        <div key={index} className={`duo-phone-panel duo-phone-panel-${index === 0 ? "left" : "right"}`}>
+          <div className="duo-phone-bezel">
+            <div className="duo-phone-screen">
+              {index === 1 && (
+                <>
+                  <div aria-hidden="true" className="absolute top-[4.5%] left-[12%] size-[3cqw] rounded-full bg-black/15 ring-1 ring-white/5" />
+                  <div aria-hidden="true" className="absolute top-[4%] right-[8%] flex items-center gap-[1.4cqw] text-[2.8cqw] font-semibold text-white/90">
+                    <span>9:41</span>
+                    <Wifi className="size-[3cqw]" />
+                    <BatteryFull className="h-[3cqw] w-[4.5cqw]" />
+                  </div>
+                  <div aria-hidden="true" className="absolute bottom-[2%] left-1/2 h-[0.6%] w-[28%] -translate-x-1/2 rounded-full bg-white/70" />
+                </>
+              )}
+              {screen}
+            </div>
+          </div>
+        </div>
+      ))}
+      <div aria-hidden="true" className="duo-phone-hinge" />
+    </div>
+  )
+}
+
+function WidgetPreview({
+  name, src, position, caption, className, duo = false,
+}: {
+  name: string
+  src: string
+  position: string
+  caption?: string
+  className: string
+  duo?: boolean
+}) {
+  return (
+    <div className={`relative overflow-hidden shadow-lg ring-1 ring-white/10 ${duo ? "rounded-[5cqw]" : "rounded-[7cqw]"} ${className}`}>
+      <motion.div key={`${name}-${src}`} initial={{ opacity: 0, scale: 1.02 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.45 }} className="absolute inset-0">
+        <Image src={src} alt={`${name} Widget`} fill className={`object-cover ${position}`} sizes={name === "Small" ? "94px" : "210px"} />
+        {caption && (
+          <>
+            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent" />
+            <p className={`absolute font-sans leading-relaxed text-white [text-shadow:0_1px_4px_black] ${duo ? "inset-x-[3cqw] bottom-[3cqw] text-[2.8cqw]" : "inset-x-[4cqw] bottom-[4cqw] text-[4cqw]"} ${name === "Medium" ? "text-center" : ""}`}>
+              {caption}
+            </p>
+          </>
+        )}
+      </motion.div>
+    </div>
+  )
+}
+
+function WidgetAppIcon({ name, duo = false }: { name: string; duo?: boolean }) {
+  return (
+    <div className={`flex flex-col items-center justify-center ${duo ? "gap-[1.4cqw]" : "gap-[2cqw]"}`}>
+      <Image src="/images/icon-1024.png" alt="" width={40} height={40} className={`shadow-md ${duo ? "size-[12cqw] rounded-[2.8cqw]" : "size-[17cqw] rounded-[4cqw]"}`} />
+      <span className={`whitespace-nowrap leading-tight text-white/90 [text-shadow:0_1px_3px_#0006] ${duo ? "text-[2.8cqw]" : "text-[4cqw]"}`}>{name}</span>
+    </div>
+  )
+}
+
 // What Section
 function WhatSection({ lang }: { lang: Lang }) {
   const t = i18n[lang].what
@@ -386,17 +462,15 @@ function WhatSection({ lang }: { lang: Lang }) {
         >
           {t.cards.map((card, index) => (
             <motion.div key={index} variants={fadeInUp} transition={{ duration: 0.8 }} className="group">
-              <div className="relative mx-auto mb-8 w-[240px] aspect-[1206/2622] bg-[#0C0C0E] rounded-[36px] p-2 shadow-2xl transition-transform duration-500 group-hover:-translate-y-1">
-                <div className="relative w-full h-full rounded-[28px] overflow-hidden bg-[#1A1A1D]">
-                  <Image
-                    src={images[index]}
-                    alt={card.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                    sizes="240px"
-                  />
-                </div>
-              </div>
+              <PhoneFrame className="mb-8 transition-transform duration-500 group-hover:-translate-y-1">
+                <Image
+                  src={images[index]}
+                  alt={card.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  sizes="240px"
+                />
+              </PhoneFrame>
               <h3 className="font-serif text-xl mb-4 text-[#F5F2EC]">{card.title}</h3>
               <p className="text-[rgba(245,242,236,0.6)] font-serif leading-relaxed">{card.description}</p>
             </motion.div>
@@ -755,6 +829,19 @@ function WidgetSection({ lang }: { lang: Lang }) {
   ]
   const [activeWidget, setActiveWidget] = useState(0)
   const widget = widgetSlides[activeWidget]
+  const phoneWidgets = [
+    { name: "Small", className: "w-full aspect-square", position: widget.smallPosition, caption: "" },
+    { name: "Medium", className: "col-span-2 w-full aspect-[329/155]", position: widget.mediumPosition, caption: widget.mediumText[lang] },
+  ]
+  // Compensate for the Duo's perspective so the Large preview reads as a square.
+  const duoWidgets = [
+    {
+      name: "Large", className: "w-full aspect-[9/8]", position: widget.largePosition, caption: widget.largeText[lang],
+    },
+    {
+      name: "Extra Large", className: "w-full aspect-[7/10]", position: widget.largePosition, caption: widget.largeText[lang],
+    },
+  ]
 
   useEffect(() => {
     const interval = window.setInterval(() => {
@@ -773,30 +860,50 @@ function WidgetSection({ lang }: { lang: Lang }) {
         <motion.p variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.1 }} className="text-[rgba(245,242,236,0.6)] text-center font-serif mb-16 max-w-xl mx-auto">
           {t.subtitle}
         </motion.p>
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[minmax(0,155fr)_minmax(0,329fr)_minmax(0,329fr)_minmax(0,280fr)] items-end justify-items-center gap-8">
-          {[
-            { name: "Small", className: "w-full max-w-[155px] aspect-square", position: widget.smallPosition },
-            { name: "Medium", className: "w-full max-w-[329px] aspect-[329/155]", position: widget.mediumPosition },
-            { name: "Large", className: "w-full max-w-[329px] aspect-[329/345]", position: widget.largePosition },
-            // Present the Extra Large preview vertically, with upright artwork and text.
-            { name: "Extra Large", className: "w-full max-w-[280px] aspect-[356/748]", position: widget.largePosition },
-          ].map((size) => (
-            <motion.div key={size.name} variants={fadeInUp} transition={{ duration: 0.8 }} whileHover={{ y: -4 }} className="flex min-w-0 w-full flex-col items-center">
-              <div className={`relative overflow-hidden rounded-[24px] md:rounded-[24px] shadow-lg mb-3 border border-[rgba(245,242,236,0.08)] ${size.className}`}>
-                <motion.div key={`${size.name}-${widget.src}`} initial={{ opacity: 0, scale: 1.02 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.45 }} className="absolute inset-0">
-                  <Image src={widget.src} alt={`${size.name} Widget`} fill className={`object-cover ${size.position}`} sizes="200px" />
-                </motion.div>
-                {size.name !== "Small" && (
-                  <div className={`absolute bottom-4 md:bottom-3 ${size.name === "Medium" ? "inset-x-5 md:inset-x-5 text-center" : "inset-x-5 md:inset-x-5"}`}>
-                    <p className="font-sans text-[11px] md:text-[10px] lg:text-xs leading-relaxed text-white [text-shadow:0_1px_4px_black]">
-                      {size.name === "Medium" ? widget.mediumText[lang] : widget.largeText[lang]}
-                    </p>
+        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="mx-auto grid max-w-[980px] grid-cols-1 items-end gap-12 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-20">
+          <motion.div variants={fadeInUp} transition={{ duration: 0.8 }} className="min-w-0">
+            <figure aria-label={lang === "zh" ? "直板手機小組件" : "Phone widgets"} className="flex flex-col items-center gap-6">
+              <PhoneFrame>
+                <div className="absolute inset-0 [container-type:inline-size] bg-[radial-gradient(ellipse_at_top_left,#657567_0%,#354640_44%,#1c2a29_100%)]">
+                  <div aria-hidden="true" className="absolute inset-x-[7%] top-[3.4%] flex items-center justify-between text-[4cqw] font-semibold text-white/90">
+                    <span>9:41</span>
+                    <div className="flex items-center gap-[1cqw]">
+                      <Signal className="size-[4cqw]" />
+                      <Wifi className="size-[4cqw]" />
+                      <BatteryFull className="h-[4cqw] w-[6cqw]" />
+                    </div>
                   </div>
-                )}
-              </div>
-              <span className="text-[rgba(245,242,236,0.5)] text-sm font-sans">{size.name}</span>
-            </motion.div>
-          ))}
+                  <div aria-hidden="true" className="absolute top-[1.5%] left-1/2 h-[4.2%] w-[33%] -translate-x-1/2 rounded-full bg-black" />
+                  <div className="absolute inset-x-[6%] top-[13%] grid grid-cols-2 gap-[6cqw]">
+                    <WidgetPreview {...phoneWidgets[0]} src={widget.src} />
+                    <WidgetAppIcon name={t.appName} />
+                    <WidgetPreview {...phoneWidgets[1]} src={widget.src} />
+                  </div>
+                  <div aria-hidden="true" className="absolute bottom-[1.5%] left-1/2 h-[0.6%] w-[32%] -translate-x-1/2 rounded-full bg-white/70" />
+                </div>
+              </PhoneFrame>
+              <figcaption className="grid w-[240px] max-w-full grid-cols-2 gap-4 text-center text-sm font-sans text-[rgba(245,242,236,0.5)]">
+                {phoneWidgets.map((size) => <span key={size.name}>{size.name}</span>)}
+              </figcaption>
+            </figure>
+          </motion.div>
+          <motion.div variants={fadeInUp} transition={{ duration: 0.8 }} className="min-w-0">
+            <figure aria-label={lang === "zh" ? "Duo 雙屏手機小組件" : "Duo phone widgets"} className="mx-auto flex w-full max-w-[660px] flex-col items-center gap-6">
+              <DuoPhoneFrame screens={[
+                <div key="large-app" className="absolute inset-x-[13%] top-[11%] flex flex-col gap-[7cqw]">
+                  <WidgetPreview {...duoWidgets[0]} src={widget.src} duo />
+                  <WidgetAppIcon name={t.appName} duo />
+                </div>,
+                <div key="extra-large" className="absolute inset-x-[13%] top-1/2 -translate-y-1/2">
+                  <WidgetPreview {...duoWidgets[1]} src={widget.src} duo />
+                </div>,
+              ]} />
+              <figcaption className="grid w-full grid-cols-2 gap-4 text-center text-sm font-sans text-[rgba(245,242,236,0.5)]">
+                <span>Large</span>
+                <span>Extra Large</span>
+              </figcaption>
+            </figure>
+          </motion.div>
         </motion.div>
       </div>
     </section>
