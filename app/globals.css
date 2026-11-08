@@ -65,23 +65,25 @@ html {
 .duo-phone-panel {
   position: absolute;
   top: 1.5%;
-  width: 56.4%;
+  /* Slight overlap prevents a subpixel gap between the transformed screen planes. */
+  width: 56.6%;
   height: 97%;
   padding: 0.4cqw;
   background: linear-gradient(125deg, #969b98, #303532 15%, #717773 48%, #252a27 78%, #a2a7a3);
-  box-shadow: inset 0 0 0 0.15cqw #a2a7a3, 0 0 0 0.15cqw #111513;
 }
 
 .duo-phone-panel-left {
   left: 1.2%;
-  border-radius: 8cqw 1.2cqw 1.2cqw 8cqw;
+  padding-right: 0;
+  border-radius: 8cqw 0 0 8cqw;
   transform-origin: left center;
   transform: perspective(140cqw) rotateY(16deg);
 }
 
 .duo-phone-panel-right {
   right: 1.2%;
-  border-radius: 1.2cqw 8cqw 8cqw 1.2cqw;
+  padding-left: 0;
+  border-radius: 0 8cqw 8cqw 0;
   transform-origin: right center;
   transform: perspective(140cqw) rotateY(-16deg);
 }
@@ -94,31 +96,39 @@ html {
   background: #0c0c0e;
 }
 
+.duo-phone-panel-left .duo-phone-bezel {
+  padding-right: 0;
+}
+
+.duo-phone-panel-right .duo-phone-bezel {
+  padding-left: 0;
+}
+
+.widget-phone-wallpaper {
+  background-image: linear-gradient(#00000014, #00000024), url('/images/widget-desert-wallpaper.jpg');
+  background-size: cover;
+  background-position: 62% center;
+}
+
 .duo-phone-screen {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
   container-type: inline-size;
-  background: radial-gradient(ellipse at top left, #657567 0%, #354640 44%, #1c2a29 100%);
+  background-image: linear-gradient(#00000014, #00000024), url('/images/widget-desert-wallpaper.jpg');
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
 }
 
 .duo-phone-panel-left .duo-phone-screen {
-  border-radius: 6.8cqw 0.6cqw 0.6cqw 6.8cqw;
+  border-radius: 6.8cqw 0 0 6.8cqw;
+  background-position: left center;
 }
 
 .duo-phone-panel-right .duo-phone-screen {
-  border-radius: 0.6cqw 6.8cqw 6.8cqw 0.6cqw;
-}
-
-.duo-phone-hinge {
-  position: absolute;
-  inset: 5.5% auto 5.5% 50%;
-  width: 1.2%;
-  transform: translateX(-50%);
-  border-radius: 1cqw;
-  background: linear-gradient(90deg, #11171300, #111713b3 45%, #b6c2b518 65%, #11171300);
-  pointer-events: none;
+  border-radius: 0 6.8cqw 6.8cqw 0;
+  background-position: right center;
 }
 
 /* Custom scrollbar */

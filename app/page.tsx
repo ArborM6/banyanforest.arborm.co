@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import { useSearchParams } from "next/navigation"
 import { Suspense, useEffect, useState, type ReactNode } from "react"
 import { Sun, Coffee, Moon, Mail, Signal, Wifi, BatteryFull } from "lucide-react"
@@ -68,7 +68,7 @@ const i18n = {
     widget: {
       title: "在主畫面遇見今天",
       subtitle: "四種尺寸的小組件，讓藝術自然融入你的日常",
-      appName: "独木成林",
+      appName: "獨木成林",
     },
     rhythm: {
       title: "與你的節奏同步",
@@ -400,7 +400,6 @@ function DuoPhoneFrame({ screens }: { screens: ReactNode[] }) {
           </div>
         </div>
       ))}
-      <div aria-hidden="true" className="duo-phone-hinge" />
     </div>
   )
 }
@@ -416,18 +415,20 @@ function WidgetPreview({
   duo?: boolean
 }) {
   return (
-    <div className={`relative overflow-hidden shadow-lg ring-1 ring-white/10 ${duo ? "rounded-[5cqw]" : "rounded-[7cqw]"} ${className}`}>
-      <motion.div key={`${name}-${src}`} initial={{ opacity: 0, scale: 1.02 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.45 }} className="absolute inset-0">
-        <Image src={src} alt={`${name} Widget`} fill className={`object-cover ${position}`} sizes={name === "Small" ? "94px" : "210px"} />
-        {caption && (
-          <>
-            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent" />
-            <p className={`absolute font-sans leading-relaxed text-white [text-shadow:0_1px_4px_black] ${duo ? "inset-x-[3cqw] bottom-[3cqw] text-[2.8cqw]" : "inset-x-[4cqw] bottom-[4cqw] text-[4cqw]"} ${name === "Medium" ? "text-center" : ""}`}>
-              {caption}
-            </p>
-          </>
-        )}
-      </motion.div>
+    <div className={`relative overflow-hidden bg-black shadow-lg ring-1 ring-white/10 ${duo ? "rounded-[5cqw]" : "rounded-[7cqw]"} ${className}`}>
+      <AnimatePresence initial={false}>
+        <motion.div key={`${name}-${src}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: { delay: 0.25, duration: 0.01 } }} transition={{ duration: 0.25 }} className="absolute inset-0 bg-black">
+          <Image src={src} alt={`${name} Widget`} fill loading="eager" className={`object-cover ${position}`} sizes={name === "Small" ? "94px" : "210px"} />
+          {caption && (
+            <>
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent" />
+              <p className={`absolute font-sans leading-relaxed text-white [text-shadow:0_1px_4px_black] ${duo ? "inset-x-[3cqw] bottom-[3cqw] text-[2.8cqw]" : "inset-x-[4cqw] bottom-[4cqw] text-[4cqw]"} ${name === "Medium" ? "text-center" : ""}`}>
+                {caption}
+              </p>
+            </>
+          )}
+        </motion.div>
+      </AnimatePresence>
     </div>
   )
 }
@@ -844,11 +845,34 @@ function WidgetSection({ lang }: { lang: Lang }) {
   ]
 
   useEffect(() => {
-    const interval = window.setInterval(() => {
-      setActiveWidget((current) => (current + 1) % widgetSlides.length)
-    }, 1800)
+    let cancelled = false
+    let interval: number | undefined
 
-    return () => window.clearInterval(interval)
+    // Decode before rotating; keep the outgoing artwork opaque until the next fade finishes.
+    void Promise.all(widgetSlides.map(async (slide, index) => {
+      const image = new window.Image()
+      image.src = slide.src
+      try {
+        await image.decode()
+        return index
+      } catch {
+        return null
+      }
+    })).then((results) => {
+      if (cancelled) return
+      const ready = results.filter((index): index is number => index !== null)
+      if (ready.length === 0) return
+      setActiveWidget((current) => ready.includes(current) ? current : ready[0])
+      if (ready.length < 2) return
+      interval = window.setInterval(() => {
+        setActiveWidget((current) => ready[(ready.indexOf(current) + 1) % ready.length])
+      }, 1800)
+    })
+
+    return () => {
+      cancelled = true
+      window.clearInterval(interval)
+    }
   }, [widgetSlides.length])
 
   return (
@@ -864,7 +888,7 @@ function WidgetSection({ lang }: { lang: Lang }) {
           <motion.div variants={fadeInUp} transition={{ duration: 0.8 }} className="min-w-0">
             <figure aria-label={lang === "zh" ? "直板手機小組件" : "Phone widgets"} className="flex flex-col items-center gap-6">
               <PhoneFrame>
-                <div className="absolute inset-0 [container-type:inline-size] bg-[radial-gradient(ellipse_at_top_left,#657567_0%,#354640_44%,#1c2a29_100%)]">
+                <div className="widget-phone-wallpaper absolute inset-0 [container-type:inline-size]">
                   <div aria-hidden="true" className="absolute inset-x-[7%] top-[3.4%] flex items-center justify-between text-[4cqw] font-semibold text-white/90">
                     <span>9:41</span>
                     <div className="flex items-center gap-[1cqw]">
