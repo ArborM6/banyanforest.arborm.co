@@ -80,7 +80,7 @@ const content: Record<string, TermsContent> = {
       {
         title: "1. Service Description",
         content:
-          'BanyanDay (hereinafter referred to as "this application") is a content browsing and collection application developed and operated by Hefei Arbormu Technology Co., Ltd. This agreement applies to all services you use in this application. By registering or using this application, you agree to all terms of this agreement.',
+          'BanyanDay (hereinafter referred to as "this application") is a content browsing and collection application developed and operated by Hefei ArborM Technology Co., Ltd. This agreement applies to all services you use in this application. By registering or using this application, you agree to all terms of this agreement.',
       },
       {
         title: "2. Account Registration and Management",
@@ -125,10 +125,10 @@ const content: Record<string, TermsContent> = {
       {
         title: "10. Applicable Law and Dispute Resolution",
         content:
-          "The conclusion, execution, and interpretation of this agreement shall be governed by the laws of the People's Republic of China. Any disputes arising from this agreement shall be resolved through friendly negotiation; if negotiation fails, either party may file a lawsuit with the people's court with jurisdiction in the location of Hefei Arbormu Technology Co., Ltd.",
+          "The conclusion, execution, and interpretation of this agreement shall be governed by the laws of the People's Republic of China. Any disputes arising from this agreement shall be resolved through friendly negotiation; if negotiation fails, either party may file a lawsuit with the people's court with jurisdiction in the location of Hefei ArborM Technology Co., Ltd.",
       },
     ],
-    copyright: "© 2026 Hefei Arbormu Technology Co., Ltd. All rights reserved",
+    copyright: "© 2026 Hefei ArborM Technology Co., Ltd. All rights reserved",
     backText: "Back to Home",
     langSwitch: "中文",
   },

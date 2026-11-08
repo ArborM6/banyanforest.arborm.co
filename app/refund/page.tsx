@@ -108,7 +108,7 @@ const content: Record<RefundLang, RefundContent> = {
       {
         title: "1. Scope",
         content:
-          'This Refund Policy applies to paid membership and related subscriptions for BanyanDay (独木成林), provided by Hefei Arbormu Technology Co., Ltd. Purchase channels include Apple App Store in-app purchases and, when available, web or third-party checkout providers (such as Paddle, Lemon Squeezy, and similar).',
+          'This Refund Policy applies to paid membership and related subscriptions for BanyanDay (独木成林), provided by Hefei ArborM Technology Co., Ltd. Purchase channels include Apple App Store in-app purchases and, when available, web or third-party checkout providers (such as Paddle, Lemon Squeezy, and similar).',
       },
       {
         title: "2. App Store Purchases",
@@ -138,10 +138,10 @@ const content: Record<RefundLang, RefundContent> = {
       {
         title: "7. Governing Law",
         content:
-          "This policy is governed by the laws of the People’s Republic of China. Disputes should first be resolved amicably; if negotiation fails, either party may bring a claim before a court of competent jurisdiction where Hefei Arbormu Technology Co., Ltd. is located. You may also have mandatory consumer-protection rights under the laws of your place of residence, which this policy does not limit.",
+          "This policy is governed by the laws of the People’s Republic of China. Disputes should first be resolved amicably; if negotiation fails, either party may bring a claim before a court of competent jurisdiction where Hefei ArborM Technology Co., Ltd. is located. You may also have mandatory consumer-protection rights under the laws of your place of residence, which this policy does not limit.",
       },
     ],
-    copyright: "© 2026 Hefei Arbormu Technology Co., Ltd. All rights reserved",
+    copyright: "© 2026 Hefei ArborM Technology Co., Ltd. All rights reserved",
     backText: "Back to Home",
   },
 }

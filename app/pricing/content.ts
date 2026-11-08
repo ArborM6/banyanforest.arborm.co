@@ -205,6 +205,6 @@ export const pricingContent = {
     privacy: "Privacy Policy",
     terms: "Terms of Service",
     refund: "Refund Policy",
-    copyright: "Hefei Arbormu Technology Co., Ltd. All rights reserved.",
+    copyright: "Hefei ArborM Technology Co., Ltd. All rights reserved.",
   },
 }

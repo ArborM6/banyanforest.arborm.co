@@ -118,7 +118,7 @@ const content: Record<string, PrivacyContent> = {
           "If you have any questions about this privacy policy, please contact us at hello@arborm.com.",
       },
     ],
-    copyright: "© 2026 Hefei Arbormu Technology Co., Ltd. All rights reserved",
+    copyright: "© 2026 Hefei ArborM Technology Co., Ltd. All rights reserved",
     backText: "Back to Home",
     langSwitch: "中文",
   },

@@ -165,7 +165,7 @@ const i18n = {
       privacy: "Privacy Policy",
       terms: "Terms of Service",
       refund: "Refund Policy",
-      copyright: "© {year} Hefei Arbormu Technology Co., Ltd. All rights reserved.",
+      copyright: "© {year} Hefei ArborM Technology Co., Ltd. All rights reserved.",
     },
     langSwitch: "中文",
   },
