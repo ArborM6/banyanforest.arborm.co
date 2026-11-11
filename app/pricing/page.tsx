@@ -102,7 +102,7 @@ export default async function PricingPage({ searchParams }: PageProps) {
           <figure className="relative mx-auto w-full max-w-[440px] rounded-t-[180px] rounded-b-2xl border border-white/10 bg-[#202322] p-2.5">
             <div className="relative aspect-[1.1] overflow-hidden rounded-t-[172px] rounded-b-lg">
               <PricingArtworkSlideshow
-                alt={lang === "zh" ? "莫內筆下的海岸、峭壁與潮汐" : "Monet's painting of the coast, cliffs, and tides"}
+                alt={lang === "zh" ? "夜空下掛滿燈籠的樹木" : "A tree filled with lanterns under a night sky"}
               />
               <div aria-hidden="true" className="absolute inset-0 bg-linear-to-t from-[#121A19]/90 via-transparent to-transparent" />
               <p className="absolute inset-x-5 bottom-6 text-center text-sm leading-7 text-[#F5F2EC] sm:text-base">{t.artworkNote}</p>

@@ -12,7 +12,7 @@ export const pricingContent = {
     introduction:
       "從每天一張葉片開始，或用一份年度訂閱，留住與世界相遇的完整記憶。用自己的節奏，慢慢成林。",
     explore: "了解會員方案",
-    artwork: "CLAUDE MONET · 每日葉片中的一幅風景",
+    artwork: "紮根泥土，仰望天空",
     artworkNote: "每天一點相遇，日子自有回響。",
     plansTitle: "選擇適合你的生長方式",
     plansDescription: ["基礎版持續免費。", "想收下每一片葉子，可以選擇年度會員。"],
@@ -116,7 +116,7 @@ export const pricingContent = {
     introduction:
       "Begin with one leaf a day, or keep every daily encounter with an annual membership. Make room to grow, at your own pace.",
     explore: "Explore the plans",
-    artwork: "CLAUDE MONET · A LANDSCAPE FROM OUR DAILY LEAVES",
+    artwork: "Rooted in the soil, gazing toward the sky",
     artworkNote: "Small encounters. Lasting impressions.",
     plansTitle: "Find your own way to grow",
     plansDescription: ["Basic stays free.", "Choose Annual Membership to receive every daily leaf."],

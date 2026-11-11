@@ -7,10 +7,11 @@ const INTERVAL_MS = 4000
 const FADE_MS = 1000
 
 const artworkImages = [
-  "/images/slot-sensory-monet-low-tide.jpg",
-  "/images/slot-culture-daisy-lantern.jpg",
-  "/images/slot-knowledge-deep-space.jpg",
-  "/images/slot-surprise-flamenco.jpg",
+  "/images/pricing-tree-lantern.jpg",
+  "/images/pricing-tree-lake-morning.jpg",
+  "/images/pricing-tree-sunset-reflection.jpg",
+  "/images/pricing-tree-snow.jpg",
+  "/images/pricing-tree-sunset-birds.jpg",
 ]
 
 export function PricingArtworkSlideshow({ alt }: { alt: string }) {
