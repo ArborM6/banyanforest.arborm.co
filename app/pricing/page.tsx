@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowDown, ArrowLeft, ArrowUpRight, Check, ChevronDown, Droplets, Leaf, Mail, Sprout } from "lucide-react"
 import { annualSubscription, appStoreUrl, refundPolicyUrl, webAppUrl } from "@/lib/subscription"
+import { PricingArtworkSlideshow } from "./artwork-slideshow"
 import { pricingContent } from "./content"
 
 type PageProps = { searchParams: Promise<{ lang?: string }> }
@@ -100,13 +101,8 @@ export default async function PricingPage({ searchParams }: PageProps) {
           </div>
           <figure className="relative mx-auto w-full max-w-[440px] rounded-t-[180px] rounded-b-2xl border border-white/10 bg-[#202322] p-2.5">
             <div className="relative aspect-[1.1] overflow-hidden rounded-t-[172px] rounded-b-lg">
-              <Image
-                src="/images/slot-sensory-monet-low-tide.jpg"
+              <PricingArtworkSlideshow
                 alt={lang === "zh" ? "莫內筆下的海岸、峭壁與潮汐" : "Monet's painting of the coast, cliffs, and tides"}
-                fill
-                priority
-                sizes="(min-width: 1024px) 440px, (min-width: 640px) 440px, calc(100vw - 72px)"
-                className="object-cover"
               />
               <div aria-hidden="true" className="absolute inset-0 bg-linear-to-t from-[#121A19]/90 via-transparent to-transparent" />
               <p className="absolute inset-x-5 bottom-6 text-center text-sm leading-7 text-[#F5F2EC] sm:text-base">{t.artworkNote}</p>
