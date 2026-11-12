@@ -26,6 +26,7 @@ const i18n = {
       download: "iOS 下载",
       login: "Web/Android",
       membership: "會員與訂閱",
+      membershipLink: "免費與訂閱",
     },
     what: {
       cards: [
@@ -104,6 +105,7 @@ const i18n = {
       download: "iOS Download",
       login: "Web/Android",
       membership: "Membership & pricing",
+      membershipLink: "Membership & pricing",
     },
     what: {
       cards: [
@@ -343,7 +345,7 @@ function HeroSection({ lang }: { lang: Lang }) {
           href={`/pricing?lang=${lang}`}
           className="inline-flex items-center gap-2 text-sm text-[rgba(245,242,236,0.65)] transition-colors hover:text-[#81C784]"
         >
-          {t.membership}
+          {t.membershipLink}
           <span aria-hidden="true">↗</span>
         </Link>
       </motion.div>
